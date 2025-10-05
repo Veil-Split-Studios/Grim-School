@@ -7,7 +7,7 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private int slotCount = 4;
 
     private InventoryBar _inventoryBar;
-    private int selectedIndex;
+    public int selectedIndex;
 
     private void Awake()
     {

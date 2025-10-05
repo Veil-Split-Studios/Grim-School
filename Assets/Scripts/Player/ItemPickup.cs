@@ -23,9 +23,6 @@ public class ItemPickup : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Input System callback – Interact action ile eþleþtir
-    /// </summary>
     public void OnInteract()
     {
         TryPickup();
