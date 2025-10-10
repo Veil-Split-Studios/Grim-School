@@ -11,7 +11,9 @@ public class InventoryBar : MonoBehaviour
     public int selectedIndex = 0;
 
     private InventoryManager _inventoryManager;
-    private GameObject[] slots;
+    public GameObject[] slots;
+
+    public event System.Action<int> OnSlotChanged;
 
     private void Awake()
     {
@@ -33,11 +35,13 @@ public class InventoryBar : MonoBehaviour
         if (scroll > 0f) // yukarý
         {
             selectedIndex = (selectedIndex - 1 + slotCount) % slotCount;
+            OnSlotChanged?.Invoke(selectedIndex);
             HighlightSlot(selectedIndex);
         }
         else if (scroll < 0f) // aþaðý
         {
             selectedIndex = (selectedIndex + 1) % slotCount;
+            OnSlotChanged?.Invoke(selectedIndex);
             HighlightSlot(selectedIndex);
         }
     }
